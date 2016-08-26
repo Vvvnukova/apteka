@@ -11,9 +11,10 @@
     <div class="table-responsive">
         <table class="simplecheckout-cart">
             <colgroup>
-                <col class="image">
-                <col class="name">
+                <!--<col class="image">-->
+                
                 <col class="model">
+                <col class="name">
                 <col class="quantity">
                 <col class="price">
                 <col class="total">
@@ -21,9 +22,10 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th class="image"><?php echo $column_image; ?></th>
-                    <th class="name"><?php echo $column_name; ?></th>
+                    <!--<th class="image"><?php echo $column_image; ?></th> -->
                     <th class="model"><?php echo $column_model; ?></th>
+                    <th class="name"><?php echo $column_name; ?></th>
+                    
                     <th class="quantity"><?php echo $column_quantity; ?></th>
                     <th class="price"><?php echo $column_price; ?></th>
                     <th class="total"><?php echo $column_total; ?></th>
@@ -34,7 +36,8 @@
             <?php foreach ($products as $product) { ?>
                 <?php if (!empty($product['recurring'])) { ?>
                     <tr>
-                        <td class="simplecheckout-recurring-product" style="border:none;"><img src="<?php echo $additional_path ?>catalog/view/theme/default/image/reorder.png" alt="" title="" style="float:left;" />
+                        <td class="simplecheckout-recurring-product" style="border:none;">
+                        <img src="<?php echo $additional_path ?>catalog/view/theme/default/image/reorder.png" alt="" title="" style="float:left;" />
                             <span style="float:left;line-height:18px; margin-left:10px;">
                             <strong><?php echo $text_recurring_item ?></strong>
                             <?php echo $product['profile_description'] ?>
@@ -43,11 +46,12 @@
                     </tr>
                 <?php } ?>
                 <tr>
-                    <td class="image">
+                    <!--<td class="image">
                         <?php if ($product['thumb']) { ?>
                             <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
                         <?php } ?>
-                    </td>
+                    </td> -->
+                    <td class="model"><?php echo $product['model']; ?></td>
                     <td class="name">
                         <?php if ($product['thumb']) { ?>
                             <div class="image">
@@ -70,7 +74,7 @@
                         <small><?php echo $product['reward']; ?></small>
                         <?php } ?>
                     </td>
-                    <td class="model"><?php echo $product['model']; ?></td>
+                    
                     <td class="quantity">
                         <div class="input-group btn-block" style="max-width: 200px;">
                             <span class="input-group-btn">
@@ -78,7 +82,7 @@
                                     <i class="fa fa-minus"></i>
                                 </button>
                             </span>
-                            <input class="form-control" type="text" data-onchange="changeProductQuantity" name="quantity[<?php echo !empty($product['cart_id']) ? $product['cart_id'] : $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" />
+                            <input class="form-control" style="height: 34px;" type="text" data-onchange="changeProductQuantity" name="quantity[<?php echo !empty($product['cart_id']) ? $product['cart_id'] : $product['key']; ?>]" value="<?php echo $product['quantity']; ?>" size="1" />
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" data-onclick="increaseProductQuantity" data-toggle="tooltip" type="submit">
                                     <i class="fa fa-plus"></i>
@@ -91,8 +95,7 @@
                     </td>
                     <td class="price"><?php echo $product['price']; ?></td>
                     <td class="total"><?php echo $product['total']; ?></td>
-                    <td class="remove">
-                    </td>
+                    <td class="remove"></td>
                     </tr>
                     <?php } ?>
                     <?php foreach ($vouchers as $voucher_info) { ?>
@@ -112,9 +115,14 @@
         </table>
     </div>
 
+ <div class="simplecheckout-cart-total" id="total_<?php echo $totals[0]['code']; ?>">
+        <span><b><?php echo $totals[0]['title']; ?>:</b></span> 
+        <span class="simplecheckout-cart-total-value"><?php echo $totals[0]['text']; ?></span>
+ </div>
+<!--
 <?php foreach ($totals as $total) { ?>
     <div class="simplecheckout-cart-total" id="total_<?php echo $total['code']; ?>">
-        <span><b><?php echo $total['title']; ?>:</b></span>
+        <span><b><?php echo $total['title']; ?>:</b></span> 
         <span class="simplecheckout-cart-total-value"><?php echo $total['text']; ?></span>
         <span class="simplecheckout-cart-total-remove">
             <?php if ($total['code'] == 'coupon') { ?>
@@ -129,6 +137,7 @@
         </span>
     </div>
 <?php } ?>
+-->
 <?php if (isset($modules['coupon'])) { ?>
     <div class="simplecheckout-cart-total">
         <span class="inputs"><?php echo $entry_coupon; ?>&nbsp;<input class="form-control" type="text" data-onchange="reloadAll" name="coupon" value="<?php echo $coupon; ?>" /></span>

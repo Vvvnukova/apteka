@@ -45,7 +45,7 @@ $_['text_please_confirm']            = 'Заказ не подтвержден �
 // Column
 $_['column_image']                   = 'Фото';
 $_['column_name']                    = 'Наименование товара';
-$_['column_model']                   = 'Модель';
+$_['column_model']                   = 'Код';
 $_['column_quantity']                = '<span title="Количество">Кол-во</span>';
 $_['column_price']                   = 'Цена';
 $_['column_total']                   = 'Итого';
