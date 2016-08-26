@@ -96,7 +96,7 @@
                             max = ~~$rule.attr("data-length-max");
                         }
 
-                        var value = $field.val();
+                        var value = $field.val().trim();
 
                         if (!value && !$rule.attr("data-required")) {
                             $rule.hide();

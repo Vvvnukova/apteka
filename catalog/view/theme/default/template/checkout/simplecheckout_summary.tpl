@@ -1,63 +1,65 @@
 <div class="simplecheckout-block" id="simplecheckout_summary">
     <?php if ($display_header) { ?>
-        <div class="checkout-heading"><?php echo $text_summary ?></div>
+        <div class="checkout-heading panel-heading"><?php echo $text_summary ?></div>
     <?php } ?>
-    <table class="simplecheckout-cart">
-        <colgroup>
-            <col class="image">
-            <col class="name">
-            <col class="model">
-            <col class="quantity">
-            <col class="price">
-            <col class="total">
-        </colgroup>
-        <thead>
-            <tr>
-                <th class="image"><?php echo $column_image; ?></th>
-                <th class="name"><?php echo $column_name; ?></th>
-                <th class="model"><?php echo $column_model; ?></th>
-                <th class="quantity"><?php echo $column_quantity; ?></th>
-                <th class="price"><?php echo $column_price; ?></th>
-                <th class="total"><?php echo $column_total; ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($products as $product) { ?>
+    <div class="table-responsive">
+        <table class="simplecheckout-cart">
+            <colgroup>
+                <col class="image">
+                <col class="name">
+                <col class="model">
+                <col class="quantity">
+                <col class="price">
+                <col class="total">
+            </colgroup>
+            <thead>
                 <tr>
-                    <td class="image">
-                        <?php if ($product['thumb']) { ?>
-                            <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
-                        <?php } ?>
-                    </td>
-                    <td class="name">
-                        <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
-                        <div class="options">
-                        <?php foreach ($product['option'] as $option) { ?>
-                        &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
-                        <?php } ?>
-                        </div>
-                        <?php if ($product['reward']) { ?>
-                        <small><?php echo $product['reward']; ?></small>
-                        <?php } ?>
-                    </td>
-                    <td class="model"><?php echo $product['model']; ?></td>
-                    <td class="quantity"><?php echo $product['quantity']; ?></td>
-                    <td class="price"><?php echo $product['price']; ?></td>
-                    <td class="total"><?php echo $product['total']; ?></td>
+                    <th class="image"><?php echo $column_image; ?></th>
+                    <th class="name"><?php echo $column_name; ?></th>
+                    <th class="model"><?php echo $column_model; ?></th>
+                    <th class="quantity"><?php echo $column_quantity; ?></th>
+                    <th class="price"><?php echo $column_price; ?></th>
+                    <th class="total"><?php echo $column_total; ?></th>
                 </tr>
-            <?php } ?>
-            <?php foreach ($vouchers as $voucher_info) { ?>
-                <tr>
-                    <td class="image"></td>
-                    <td class="name"><?php echo $voucher_info['description']; ?></td>
-                    <td class="model"></td>
-                    <td class="quantity">1</td>
-                    <td class="price"><?php echo $voucher_info['amount']; ?></td>
-                    <td class="total"><?php echo $voucher_info['amount']; ?></td>
-                </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach ($products as $product) { ?>
+                    <tr>
+                        <td class="image">
+                            <?php if ($product['thumb']) { ?>
+                                <a href="<?php echo $product['href']; ?>"><img src="<?php echo $product['thumb']; ?>" alt="<?php echo $product['name']; ?>" title="<?php echo $product['name']; ?>" /></a>
+                            <?php } ?>
+                        </td>
+                        <td class="name">
+                            <a href="<?php echo $product['href']; ?>"><?php echo $product['name']; ?></a>
+                            <div class="options">
+                            <?php foreach ($product['option'] as $option) { ?>
+                            &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small><br />
+                            <?php } ?>
+                            </div>
+                            <?php if ($product['reward']) { ?>
+                            <small><?php echo $product['reward']; ?></small>
+                            <?php } ?>
+                        </td>
+                        <td class="model"><?php echo $product['model']; ?></td>
+                        <td class="quantity"><?php echo $product['quantity']; ?></td>
+                        <td class="price"><?php echo $product['price']; ?></td>
+                        <td class="total"><?php echo $product['total']; ?></td>
+                    </tr>
+                <?php } ?>
+                <?php foreach ($vouchers as $voucher_info) { ?>
+                    <tr>
+                        <td class="image"></td>
+                        <td class="name"><?php echo $voucher_info['description']; ?></td>
+                        <td class="model"></td>
+                        <td class="quantity">1</td>
+                        <td class="price"><?php echo $voucher_info['amount']; ?></td>
+                        <td class="total"><?php echo $voucher_info['amount']; ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
 
     <?php foreach ($totals as $total) { ?>
         <div class="simplecheckout-cart-total" id="total_<?php echo $total['code']; ?>">

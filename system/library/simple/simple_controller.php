@@ -84,7 +84,13 @@ class SimpleController extends Controller {
 
         if ($this->_opencartVersion < 200) {
             $returnContent = $this->getChild($action, $params);
+        } elseif ($this->_opencartVersion < 230) {
+            $returnContent = $this->load->controller($action, $params);
         } else {
+            if (strpos($action, 'module/') === 0 || strpos($action, 'payment/') === 0) {
+                $action = 'extension/'.$action;
+            }
+
             $returnContent = $this->load->controller($action, $params);
         }
 

@@ -50,6 +50,17 @@ class ControllerCheckoutSimpleCheckoutLogin extends SimpleController {
                     if ($this->simplecheckout->getOpencartVersion() > 200) {
                         $this->model_account_customer->deleteLoginAttempts($this->request->post['email']);
                     }
+
+                    if (($this->simplecheckout->getOpencartVersion() > 200 && $this->simplecheckout->getOpencartVersion() < 230) || ($this->simplecheckout->getOpencartVersion() >= 230 && $this->config->get('config_customer_activity'))) {
+                        $this->load->model('account/activity');
+
+                        $activity_data = array(
+                            'customer_id' => $this->customer->getId(),
+                            'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName()
+                        );
+
+                        $this->model_account_activity->addActivity('login', $activity_data);
+                    }
                 } else {
                     $this->_templateData['error_login'] = $this->language->get('error_login');
                     $this->simplecheckout->addError('login');

@@ -109,7 +109,7 @@ class ControllerAccountSimpleRegister extends SimpleController {
             $this->simpleregister->saveCustomFields(array('register'), 'customer', $customerId);
             $this->simpleregister->saveCustomFields(array('register'), 'address', $addressId);
 
-            if ($this->simpleregister->getOpencartVersion() > 200) {
+            if (($this->simpleregister->getOpencartVersion() > 200 && $this->simpleregister->getOpencartVersion() < 230) || ($this->simpleregister->getOpencartVersion() >= 230 && $this->config->get('config_customer_activity'))) {
                 // Add to activity log
                 $this->load->model('account/activity');
 

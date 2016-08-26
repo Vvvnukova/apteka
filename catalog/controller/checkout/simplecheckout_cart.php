@@ -407,7 +407,7 @@ class ControllerCheckoutSimpleCheckoutCart extends SimpleController {
 
             foreach ($results as $result) {
                 if ($this->config->get($result['code'] . '_status')) {
-                    $this->load->model('total/' . $result['code']);
+                    $this->simplecheckout->loadModel('total/' . $result['code']);
 
                     if ($version < 220) {
                         $this->{'model_total_' . $result['code']}->getTotal($totals, $total, $taxes);
@@ -529,7 +529,7 @@ class ControllerCheckoutSimpleCheckoutCart extends SimpleController {
         if ($version < 210) {
             $this->load->model('checkout/coupon');
         } else {
-            $this->load->model('total/coupon');
+            $this->simplecheckout->loadModel('total/coupon');
         }
 
         $error = false;
@@ -556,7 +556,7 @@ class ControllerCheckoutSimpleCheckoutCart extends SimpleController {
         if ($version < 210) {
             $this->load->model('checkout/voucher');
         } else {
-            $this->load->model('total/voucher');
+            $this->simplecheckout->loadModel('total/voucher');
         }
 
         $error = false;

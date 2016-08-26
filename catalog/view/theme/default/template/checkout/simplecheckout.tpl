@@ -9,7 +9,7 @@ include $simple_header;
         .simplecheckout-left-column {
             width: <?php echo $left_column_width ?>%;
         }
-        @media only screen and (max-width:768px) {
+        @media only screen and (max-width:1024px) {
             .simplecheckout-left-column {
                 width: 100%;
             }
@@ -19,7 +19,7 @@ include $simple_header;
         .simplecheckout-right-column {
             width: <?php echo $right_column_width ?>%;
         }
-        @media only screen and (max-width:768px) {
+        @media only screen and (max-width:1024px) {
             .simplecheckout-right-column {
                 width: 100%;
             }

@@ -280,7 +280,7 @@ class ControllerCheckoutSimpleCheckoutSummary extends SimpleController {
 
             foreach ($results as $result) {
                 if ($this->config->get($result['code'] . '_status')) {
-                    $this->load->model('total/' . $result['code']);
+                    $this->simplecheckout->loadModel('total/' . $result['code']);
 
                     if ($version < 220) {
                         $this->{'model_total_' . $result['code']}->getTotal($totals, $total, $taxes);

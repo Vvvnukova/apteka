@@ -246,9 +246,16 @@ table.form td+td {
 .container-fluid .button {
   margin-right: 5px;
 }
+.heading > a {
+  margin-top: 7px;
+}
 .container-fluid .heading {
   width: 100%;
   overflow: hidden;
+  margin-bottom: 10px;
+}
+.container-fluid .heading > a {
+  margin-top: 0;
 }
 .container-fluid .heading .buttons {
   float: right;
@@ -294,4 +301,100 @@ table.form td+td {
   background-color: #EAF7D9;
   border: 1px solid #BBDF8D;
   margin-bottom: 10px;
+}
+
+.simple-modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .5);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.simple-modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.simple-modal-container {
+  width: 80%;
+  height: 80%;
+  min-height: 500px;
+  margin: 0px auto;
+  padding: 20px 30px;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.simple-modal-container iframe {
+  min-height: 500px;
+}
+
+.simple-modal-header h1 {
+  margin: 0;
+  color: #42b983;
+  float: left;
+}
+
+.simple-modal-header a.button {
+  float: right;
+}
+
+.simple-modal-header:after {
+  content:"";
+  display:block;
+  clear:both;
+}
+
+.simple-modal-body {
+  padding: 20px 0;
+  height: 90%;
+}
+
+.simple-notify {
+  position: fixed;
+  z-index: 5000;
+  top: 0;
+  right: 0;
+  pointer-events: none;
+  font-size: 16px;
+}
+
+.simple-notify__alert {
+  display: block;
+  margin: 5px;
+  width: 500px;
+  right: -310px;
+  pointer-events: all;
+  position: relative;
+  left: 0;
+  padding: 15px;
+
+  background-color: #F44336;
+  border-color: #F44336;
+  color: #FFFFFF;
+}
+
+.simple-notify__alert-warning {
+  background-color: #F44336;
+  border-color: #F44336;
+  color: #FFFFFF;
+}
+
+.simple-notify__alert-success {
+  background-color: #00AA00;
+  border-color: #F44336;
+  color: #FFFFFF;
+}
+
+.link-help {
+  text-transform: uppercase;
+  background-color: #00AA00 !important;
 }

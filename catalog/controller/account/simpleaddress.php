@@ -81,6 +81,17 @@ class ControllerAccountSimpleaddress extends SimpleController {
 
             $this->simpleaddress->saveCustomFields(array('address'), 'address', $addressId);
 
+            if (($this->simpleaddress->getOpencartVersion() > 200 && $this->simpleaddress->getOpencartVersion() < 230) || ($this->simpleaddress->getOpencartVersion() >= 230 && $this->config->get('config_customer_activity'))) {
+                $this->load->model('account/activity');
+
+                $activity_data = array(
+                    'customer_id' => $this->customer->getId(),
+                    'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName()
+                );
+
+                $this->model_account_activity->addActivity('address_add', $activity_data);
+            }
+
             if ($this->simpleaddress->getOpencartVersion() < 200) {
                 $this->session->data['success'] = $this->language->get('text_insert');
             } else {
@@ -215,6 +226,17 @@ class ControllerAccountSimpleaddress extends SimpleController {
 
                 unset($this->session->data['payment_method']);
                 unset($this->session->data['payment_methods']);
+            }
+
+            if (($this->simpleaddress->getOpencartVersion() > 200 && $this->simpleaddress->getOpencartVersion() < 230) || ($this->simpleaddress->getOpencartVersion() >= 230 && $this->config->get('config_customer_activity'))) {
+                $this->load->model('account/activity');
+
+                $activity_data = array(
+                    'customer_id' => $this->customer->getId(),
+                    'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName()
+                );
+
+                $this->model_account_activity->addActivity('address_edit', $activity_data);
             }
 
             if ($this->simpleaddress->getOpencartVersion() < 200) {

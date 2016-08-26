@@ -949,7 +949,7 @@ class SimpleCheckout extends Simple {
             $this->saveToCookies();
         }
 
-        if ($this->config->get('config_customer_group_id') != $this->session->data['simple']['customer']['customer_group_id'] && $this->session->data['simple']['customer']['customer_group_id'] != '') {
+        if ($this->config->get('config_customer_group_id') != $this->session->data['simple']['customer']['customer_group_id'] && !empty($this->session->data['simple']['customer']['customer_group_id'])) {
             $this->config->set('config_customer_group_id', $this->session->data['simple']['customer']['customer_group_id']);
 
             if ($this->getOpencartVersion() < 220) {

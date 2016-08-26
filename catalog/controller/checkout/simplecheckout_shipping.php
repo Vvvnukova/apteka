@@ -57,7 +57,7 @@ class ControllerCheckoutSimpleCheckoutShipping extends SimpleController {
             }
 
             if ($this->config->get($result['code'] . '_status') && $display) {
-                $this->load->model('shipping/' . $result['code']);
+                $this->simplecheckout->loadModel('shipping/' . $result['code']);
 
                 $quote = $this->{'model_shipping_' . $result['code']}->getQuote($address);
 

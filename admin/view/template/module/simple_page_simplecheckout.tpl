@@ -259,7 +259,16 @@
                 </table>
             </htab>
             <htab title="<?php echo $l->get('tab_simplecheckout_customer', true) ?>" title-lang-id="tab_simplecheckout_customer" ng-init="checkout.customer = !empty(checkout.customer) ? checkout.customer : {}">
-                <table class="form">
+                <table class="form" ng-controller="simpleCustomerController">
+                    <tr ng-init="setData()">
+                        <td>
+                            <?php echo $l->get('entry_register'); ?>
+                        </td>
+                        <td>
+                            <label><input type="radio" value="1" ng-model="setData.default.saved" ?><?php echo $l->get('text_yes') ?></label>
+                            <label><input type="radio" value="0" ng-model="setData.default.saved" ?><?php echo $l->get('text_no') ?></label>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <?php echo $l->get('entry_display_login'); ?>

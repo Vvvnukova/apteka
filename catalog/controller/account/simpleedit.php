@@ -87,6 +87,17 @@ class ControllerAccountSimpleEdit extends SimpleController {
 
             $this->session->data['success'] = $this->language->get('text_success');
 
+            if (($this->simpleedit->getOpencartVersion() > 200 && $this->simpleedit->getOpencartVersion() < 230) || ($this->simpleedit->getOpencartVersion() >= 230 && $this->config->get('config_customer_activity'))) {
+                $this->load->model('account/activity');
+
+                $activity_data = array(
+                    'customer_id' => $this->customer->getId(),
+                    'name'        => $this->customer->getFirstName() . ' ' . $this->customer->getLastName()
+                );
+
+                $this->model_account_activity->addActivity('edit', $activity_data);
+            }
+
             if ($this->simpleedit->isAjaxRequest()) {
                 $this->_templateData['redirect'] = $this->url->link('account/account', '', 'SSL');
             } else {

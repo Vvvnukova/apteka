@@ -1,9 +1,17 @@
 <div ng-controller="simpleRowController" ng-init="settings.fields = !empty(settings.fields) ? settings.fields : [];rows=settings.fields;loadAllValues()">
     <vtabs extendable="true" removable-method="deleteRow(id)" extendable-placeholder="<?php echo $l->get('entry_new_field_id', true) ?>" extendable-method="createRow(id)">
-        <vtab title="{{field.id}}" removable="{{field.custom ? 'true' : ''}}" tooltip="{{!empty(field.label[currentLanguage]) ? field.label[currentLanguage] : field.id }}" removable-id="{{field.id}}" ng-repeat="field in rows">
+        <vtab title="{{!empty(field.label[currentLanguage]) ? field.label[currentLanguage] : field.id}}" removable="{{field.custom ? 'true' : ''}}" tooltip="{{ field.id }}" removable-id="{{field.id}}" ng-repeat="field in rows">
             <htabs class="simple-field-settings">
                 <htab title="<?php echo $l->get('tab_field_main', true) ?>" title-lang-id="tab_field_main">
                     <table class="form">
+                        <tr>
+                            <td>
+                                ID
+                            </td>
+                            <td>
+                                <h3>{{field.id}}</h3>
+                            </td>
+                        </tr>
                         <tr ng-init="field.label= !empty(field.label) ? field.label : {}">
                             <td>
                                 <?php echo $l->get('entry_field_label'); ?>
@@ -16,14 +24,14 @@
                             <td><?php echo $l->get('entry_custom') ?></td>
                             <td><input type="checkbox" ng-model="field.custom"></td>
                         </tr>-->
-                        <tr ng-init="field.objects = !empty(field.objects) ? field.objects : {}">
+                        <tr ng-if="field.custom" ng-init="field.objects = !empty(field.objects) ? field.objects : {}">
                             <td>
                                 <?php echo $l->get('entry_field_object'); ?>
                             </td>
                             <td>
-                                <div ng-if="!field.custom">
+                                <!-- <div ng-if="!field.custom">
                                     <div ng-repeat="o in opencartObjects"><label><input ng-disabled="!field.custom" type="checkbox" ng-model="field.objects[o.id]" value="1">{{o.label}}</label></div>
-                                </div>
+                                </div> -->
                                 <div ng-if="field.custom">
                                     <div ng-repeat="o in opencartObjects"><label><input type="radio" ng-model="field.object" value="{{o.id}}">{{o.label}}</label></div>
                                     <!--<div><label><input type="radio" ng-model="field.object" value="payment"><?php echo $l->get('text_field_of_payment_form') ?></label></div>-->

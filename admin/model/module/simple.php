@@ -237,6 +237,14 @@ class ModelModuleSimple extends Model {
         }
     }
 
+    public function deleteUrlAliases() {
+        $query = $this->db->query("SHOW TABLES LIKE '" . DB_PREFIX . "url_alias'");
+        if ($query->rows) {
+            $this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE `query` = 'checkout/simplecheckout' AND `keyword` = 'simplecheckout'");
+            $this->db->query("DELETE FROM " . DB_PREFIX . "url_alias WHERE `query` = 'account/simpleregister' AND `keyword` = 'simpleregister'");
+        }
+    }
+
     private function alterTable($table, $fields) {
         $fields[] = 'metadata';
 
@@ -267,4 +275,38 @@ class ModelModuleSimple extends Model {
 
         return $result;
     }
+
+    public function addModifications() {
+        $this->load->model('extension/modification');
+        $this->model_extension_modification->addModification(array(
+            'code' => 'simple url rewrite',
+            'name' => 'simple url rewrite',
+            'author' => 'deeman',
+            'version' => '1.0.0',
+            'link' => 'http://simpleopencart.com',
+            'xml' => '<modification>
+    <name>simple url rewrite</name>
+    <code>simple url rewrite</code>
+    <version>1.0.0</version>
+    <author>deeman</author>
+    <link>http://simpleopencart.com</link>
+
+    <file path="catalog/controller/startup/startup.php">
+        <operation>
+            <search><![CDATA[new Url]]></search>
+            <add position="after"><![CDATA[$this->url->addRewrite(new Simple\Rewrite($this->config));]]></add>
+        </operation>
+    </file>
+</modification>',
+            'status' => 1
+        ));
+    }
+
+    public function deleteModifications() {
+        $this->load->model('extension/modification');
+        $modification = $this->model_extension_modification->getModificationByCode('simple url rewrite');
+        $this->model_extension_modification->deleteModification($modification['modification_id']);
+    }
+}
+class ModelExtensionModuleSimple extends ModelModuleSimple {
 }

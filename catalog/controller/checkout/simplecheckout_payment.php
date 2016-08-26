@@ -58,7 +58,7 @@ class ControllerCheckoutSimpleCheckoutPayment extends SimpleController {
 
         foreach ($results as $result) {
             if ($this->config->get($result['code'] . '_status')) {
-                $this->load->model('total/' . $result['code']);
+                $this->simplecheckout->loadModel('total/' . $result['code']);
 
                 if ($this->simplecheckout->getOpencartVersion() < 220) {
                     $this->{'model_total_' . $result['code']}->getTotal($totals, $total, $taxes);
@@ -101,7 +101,7 @@ class ControllerCheckoutSimpleCheckoutPayment extends SimpleController {
             }
 
             if ($this->config->get($result['code'] . '_status') && $display) {
-                $this->load->model('payment/' . $result['code']);
+                $this->simplecheckout->loadModel('payment/' . $result['code']);
 
                 $method = $this->{'model_payment_' . $result['code']}->getMethod($address, $total);
 

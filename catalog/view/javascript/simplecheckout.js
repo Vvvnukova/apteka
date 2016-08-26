@@ -350,8 +350,8 @@
             }
 
             var gatewayLink = $paymentForm.find("div.buttons a:last").attr("href");
-            var $submitButton = $paymentForm.find("div.buttons input[type=button]:last,div.buttons input[type=submit]:last,div.buttons button:last,div.buttons a.button:last:not([href]),div.buttons a.btn:last:not([href])");
-            var $lastButton = $paymentForm.find("input[type=button]:last,input[type=submit]:last,button:last");
+            var $submitButton = $paymentForm.find("div.buttons input[type=button]:last,div.buttons input[type=submit]:last,div.buttons input[type=image]:last,div.buttons button:last,div.buttons a.button:last:not([href]),div.buttons a.btn:last:not([href])");
+            var $lastButton = $paymentForm.find("input[type=button]:last,input[type=submit]:last,input[type=image]:last,button:last");
             var lastLink = $paymentForm.find("a:last").attr("href");
 
             var overlayButton = function() {
@@ -432,8 +432,8 @@
             }
 
             var $gatewayLink = $paymentForm.find("div.buttons a:last");
-            var $submitButton = $paymentForm.find("div.buttons input[type=button]:last,div.buttons input[type=submit]:last,div.buttons button:last,div.buttons a.button:last:not([href]),div.buttons a.btn:last:not([href])");
-            var $lastButton = $paymentForm.find("input[type=button]:last,input[type=submit]:last,button:last");
+            var $submitButton = $paymentForm.find("div.buttons input[type=button]:last,div.buttons input[type=submit]:last,div.buttons input[type=image]:last,div.buttons button:last,div.buttons a.button:last:not([href]),div.buttons a.btn:last:not([href])");
+            var $lastButton = $paymentForm.find("input[type=button]:last,input[type=submit]:last,input[type=image]:last,button:last");
             var $lastLink = $paymentForm.find("a:last");
 
             var $obj = false;

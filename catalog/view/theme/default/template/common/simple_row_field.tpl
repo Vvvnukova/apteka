@@ -1,6 +1,6 @@
-<div class="form-group <?php if ($required) { ?>required<?php } ?>">
-    <label class="control-label <?php echo $page == 'checkout' ? 'col-sm-3' : 'col-sm-2' ?>" for="<?php echo $id ?>"><?php echo $label ?></label>
-    <div class="<?php echo $page == 'checkout' ? 'col-sm-9' : 'col-sm-10' ?>">
+<div class="form-group <?php if ($required) { ?>required<?php } ?> row-<?php echo $id ?>">
+    <label class="control-label <?php echo $page == 'checkout' ? 'col-sm-4' : 'col-sm-2' ?>" for="<?php echo $id ?>"><?php echo $label ?></label>
+    <div class="<?php echo $page == 'checkout' ? 'col-sm-8' : 'col-sm-10' ?>">
       <?php if ($type == 'select') { ?>
         <select class="form-control" name="<?php echo $name ?>" id="<?php echo $id ?>" <?php echo $reload ? 'data-onchange="reloadAll"' : 'data-reload-payment-form="true"'?>>
           <?php foreach ($values as $info) { ?>

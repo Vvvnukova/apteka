@@ -36,9 +36,9 @@
                 $rootScope.typesWithValues = ["select","checkbox","radio"];
                 $rootScope.typesWithPlaceholder = ["text","email","tel","password","textarea","date","time","captcha"];
                 $rootScope.opencartObjects = [
-                    {id:"order", label: "<?php echo $l->get('text_object_order', true); ?>"},
-                    {id:"customer", label: "<?php echo $l->get('text_object_customer', true); ?>"},
-                    {id:"address", label: "<?php echo $l->get('text_object_address', true); ?>"}
+                    {id:"order", label: "<?php echo $l->get('text_object_order'); ?>"},
+                    {id:"customer", label: "<?php echo $l->get('text_object_customer'); ?>"},
+                    {id:"address", label: "<?php echo $l->get('text_object_address'); ?>"}
                 ];
                 $rootScope.rulesForTypes = {
                     "notEmpty": $rootScope.types,
@@ -48,10 +48,11 @@
                     "equal": $rootScope.types
                 };
                 $rootScope.saving = false;
+                $rootScope.alerts = [];
                 $rootScope.blocks = {
                   "cart": {
                     id: "cart",
-                    label: "<?php echo $l->get('text_block_cart', true) ?>",
+                    label: "<?php echo $l->get('text_block_cart') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: true,
@@ -59,7 +60,7 @@
                   },
                   "customer": {
                     id: "customer",
-                    label: "<?php echo $l->get('text_block_customer', true) ?>",
+                    label: "<?php echo $l->get('text_block_customer') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: true,
@@ -67,7 +68,7 @@
                   },
                   "payment_address": {
                     id: "payment_address",
-                    label: "<?php echo $l->get('text_block_payment_address', true) ?>",
+                    label: "<?php echo $l->get('text_block_payment_address') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: true,
@@ -75,7 +76,7 @@
                   },
                   "shipping_address": {
                     id: "shipping_address",
-                    label: "<?php echo $l->get('text_block_shipping_address', true) ?>",
+                    label: "<?php echo $l->get('text_block_shipping_address') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: true,
@@ -83,7 +84,7 @@
                   },
                   "payment": {
                     id: "payment",
-                    label: "<?php echo $l->get('text_block_payment', true) ?>",
+                    label: "<?php echo $l->get('text_block_payment') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: true,
@@ -91,7 +92,7 @@
                   },
                   "shipping": {
                     id: "shipping",
-                    label: "<?php echo $l->get('text_block_shipping', true) ?>",
+                    label: "<?php echo $l->get('text_block_shipping') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: true,
@@ -99,7 +100,7 @@
                   },
                   "help": {
                     id: "help",
-                    label: "<?php echo $l->get('text_block_help', true) ?>",
+                    label: "<?php echo $l->get('text_block_help') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: false,
@@ -107,7 +108,7 @@
                   },
                   "agreement": {
                     id: "agreement",
-                    label: "<?php echo $l->get('text_block_agreement', true) ?>",
+                    label: "<?php echo $l->get('text_block_agreement') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: false,
@@ -115,7 +116,7 @@
                   },
                   "comment": {
                     id: "comment",
-                    label: "<?php echo $l->get('text_block_comment', true) ?>",
+                    label: "<?php echo $l->get('text_block_comment') ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: false,
@@ -123,7 +124,7 @@
                   },
                   "summary": {
                     id: "summary",
-                    label: "<?php echo $l->get('text_block_summary', true)  ?>",
+                    label: "<?php echo $l->get('text_block_summary')  ?>",
                     used: {"0":false},
                     required: false,
                     useHideOptions: false,
@@ -131,7 +132,7 @@
                   },
                   "payment_form": {
                     id: "payment_form",
-                    label: "<?php echo $l->get('text_block_payment_form', true) ?>",
+                    label: "<?php echo $l->get('text_block_payment_form') ?>",
                     used: {"0":false},
                     required: true,
                     useHideOptions: false,
@@ -141,23 +142,25 @@
                 $rootScope.columns = {
                   "two": {
                     id: "two",
-                    label: "<?php echo $l->get('text_two_columns', true) ?>"
+                    label: "<?php echo $l->get('text_two_columns') ?>"
                   },
                   "three": {
                     id: "three",
-                    label: "<?php echo $l->get('text_three_columns', true) ?>"
+                    label: "<?php echo $l->get('text_three_columns') ?>"
                   }
                 };
                 $rootScope.errors = {
-                  "blocksRequired": "<?php echo $l->get('error_blocks_required', true) ?>",
-                  "incorrectId": "<?php echo $l->get('error_incorrect_id', true) ?>",
-                  "usedId": "<?php echo $l->get('error_used_id', true) ?>"
+                  "blocksRequired": "<?php echo $l->get('error_blocks_required') ?>",
+                  "incorrectId": "<?php echo $l->get('error_incorrect_id') ?>",
+                  "usedId": "<?php echo $l->get('error_used_id') ?>"
                 };
                 $rootScope.texts = {
-                  "hideForLogged": "<?php echo $l->get('entry_hide_for_logged', true) ?>",
-                  "hideForGuest": "<?php echo $l->get('entry_hide_for_guest', true) ?>",
-                  "displayHeader": "<?php echo $l->get('entry_display_header', true) ?>",
-                  "combineWithCustomer": "<?php echo $l->get('entry_combine_with_customer', true) ?>"
+                  "hideForLogged": "<?php echo $l->get('entry_hide_for_logged') ?>",
+                  "hideForGuest": "<?php echo $l->get('entry_hide_for_guest') ?>",
+                  "displayHeader": "<?php echo $l->get('entry_display_header') ?>",
+                  "combineWithCustomer": "<?php echo $l->get('entry_combine_with_customer') ?>",
+                  "alertDefaultValue": "<?php echo $l->get('text_default_value_for_removed') ?>",
+                  "saved": "<?php echo $text_success; ?>"
                 };
             }
         );
@@ -165,11 +168,13 @@
     <?php if ($error_warning) { ?>
     <div class="warning"><?php echo $error_warning; ?></div>
     <?php } ?>
-    <div class="success" style="display: none"><?php echo $text_success; ?></div>
     <div class="box">
       <div class="heading">
+        <a ng-click="openFaq('//simpleopencart.com/info/4.x/faq_ru.html')" class="btn btn-primary button link-help"><?php echo $l->get('text_open_faq') ?></a>
+        <a ng-click="openNews('//simpleopencart.com/info/4.x/news_ru.html')" class="btn btn-primary button"><?php echo $l->get('text_open_news') ?></a>
+        <a href="http://simpleopencart.com" class="btn btn-primary button" target="_blank"><?php echo $l->get('text_author_site') ?></a>
         <div class="buttons">
-          <?php if (count($stores) > 0) { ?>
+          <?php if (count($stores) > 1) { ?>
           <div class="stores">
             <?php echo $l->get('text_store') ?>:&nbsp;
             <select name="store_id" id="store_id" onchange="location='<?php echo str_replace("'", "\\'", $action_without_store); ?>'+'&store_id='+jQuery(this).val()+'&settings_group_id='+jQuery('#settings_group_id').val()">
@@ -188,30 +193,35 @@
     <div class="content">
         <form action="<?php echo $action_main; ?>" method="post" enctype="multipart/form-data" id="form">
           <htabs>
-            <htab title="<?php echo $l->get('tab_pages', true) ?>" title-lang-id="tab_pages">
+            <htab title="<?php echo $l->get('tab_pages') ?>" title-lang-id="tab_pages">
               <?php echo $simple_tab_pages ?>
             </htab>
-            <htab title="<?php echo $l->get('tab_fields', true) ?>" title-lang-id="tab_fields">
+            <htab title="<?php echo $l->get('tab_fields') ?>" title-lang-id="tab_fields">
               <?php echo $simple_tab_fields ?>
             </htab>
-            <htab title="<?php echo $l->get('tab_headers', true) ?>" title-lang-id="tab_headers">
+            <htab title="<?php echo $l->get('tab_headers') ?>" title-lang-id="tab_headers">
               <?php echo $simple_tab_headers ?>
             </htab>
-            <htab title="<?php echo $l->get('tab_integration', true) ?>" title-lang-id="tab_integration">
+            <htab title="<?php echo $l->get('tab_integration') ?>" title-lang-id="tab_integration">
               <?php echo $simple_tab_integration ?>
             </htab>
-            <htab title="<?php echo $l->get('tab_backup', true) ?>" title-lang-id="tab_backup">
+            <htab title="<?php echo $l->get('tab_backup') ?>" title-lang-id="tab_backup">
               <?php echo $simple_tab_backup ?>
             </htab>
-            <htab title="<?php echo $l->get('tab_modules', true) ?>" title-lang-id="tab_modules">
+            <htab title="<?php echo $l->get('tab_modules') ?>" title-lang-id="tab_modules">
               <?php echo $simple_tab_modules ?>
             </htab>
-            <htab title="<?php echo $l->get('tab_address_formats', true) ?>" title-lang-id="tab_address_formats">
+            <htab title="<?php echo $l->get('tab_address_formats') ?>" title-lang-id="tab_address_formats">
               <?php echo $simple_tab_address_formats ?>
             </htab>
           </htabs>
         </form>
     </div>
+    <modal title="<?php echo $l->get('text_open_faq') ?>" close-text="<?php echo $l->get('button_close') ?>" ng-show="isFaqOpened" src="faqSrc" on-close="closeFaq()">
+    </modal>
+    <modal title="<?php echo $l->get('text_open_news') ?>" close-text="<?php echo $l->get('button_close') ?>" ng-show="isNewsOpened" src="newsSrc" on-close="closeNews()">
+    </modal>
+    <alerts></alerts>
 </div>
 <?php include 'simple_footer.tpl' ?>
 <?php echo $footer; ?>

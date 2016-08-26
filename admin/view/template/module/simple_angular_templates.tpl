@@ -161,3 +161,25 @@
         <div class="set-row" ng-show="setData.both"><span class="guest">&nbsp;&nbsp;&nbsp;&nbsp;</span> - <?php echo $l->get('text_help_hide_guest') ?></div>
     </div>
 </script>
+<script type="text/ng-template" id="modal">
+  <div class="simple-modal-mask" ng-click="close()">
+    <div class="simple-modal-wrapper">
+      <div class="simple-modal-container">
+        <div class="simple-modal-header">
+          <h1>{{title}}</h1>
+          <a class="btn button btn-default" ng-click="close()"><span>{{closeText}}</span></a>
+        </div>
+        <div class="simple-modal-body">
+            <iframe ng-if="src" ng-src="{{trustSrc(src)}}" frameborder="0" style="width:100%;height:100%"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script type="text/ng-template" id="alerts">
+  <div class="simple-notify">
+    <div ng-repeat="alert in alerts" class="simple-notify__alert simple-notify__alert-{{alert.type}}" >
+        {{alert.text}}
+    </div>
+  </div>
+</script>

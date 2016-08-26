@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+	<id>Simple Link Replacing</id>
+	<version>1.0</version>
+	<vqmver>2.0</vqmver>
+	<author>deeman</author>
+    <file name="system/library/url.php">
+		<operation>
+			<search position="after"><![CDATA[function link(]]></search>
+			<add><![CDATA[
+			// SIMPLE START
+            global $config;
+
+            if (!empty($config) && method_exists($config, 'get') && $config->get('simple_settings')) {
+                $get_route = isset($_GET['route']) ? $_GET['route'] : (isset($_GET['_route_']) ? $_GET['_route_'] : '');
+
+                if ($config->get('simple_replace_cart') && $route == 'checkout/cart' && $get_route != 'checkout/cart') {
+                    $connection = 'SSL';
+                    $route = 'checkout/simplecheckout';
+                }
+
+                if ($config->get('simple_replace_checkout') && $route == 'checkout/checkout' && $get_route != 'checkout/checkout') {
+                    $route = 'checkout/simplecheckout';
+                }
+
+                if ($config->get('simple_replace_register') && $route == 'account/register' && $get_route != 'account/register') {
+                    $route = 'account/simpleregister';
+                }
+
+                if ($config->get('simple_replace_edit') && $route == 'account/edit' && $get_route != 'account/edit') {
+                    $route = 'account/simpleedit';
+                }
+
+                if ($config->get('simple_replace_address') && $route == 'account/address/update' && $get_route != 'account/address/update') {
+                    $route = 'account/simpleaddress/update';
+                }
+
+                if ($config->get('simple_replace_address') && $route == 'account/address/insert' && $get_route != 'account/address/insert') {
+                    $route = 'account/simpleaddress/insert';
+                }
+            }
+            // SIMPLE END
+            ]]>
+            </add>
+		</operation>
+	</file>
+</modification>

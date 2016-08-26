@@ -80,8 +80,8 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
                     $this->tax = new Tax($this->registry);
                     $this->cart = new Cart($this->registry);
                 } else {
-                    $this->tax = new Cart\Tax($this->registry);
-                    $this->cart = new Cart\Cart($this->registry);
+                    //$this->tax = new Cart\Tax($this->registry);
+                    //$this->cart = new Cart\Cart($this->registry);
                 }
             }
             // end
@@ -373,6 +373,18 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
                     $addressId = $customerInfo['address_id'];
                 }
 
+                if (($this->simplecheckout->getOpencartVersion() > 200 && $this->simplecheckout->getOpencartVersion() < 230) || ($this->simplecheckout->getOpencartVersion() >= 230 && $this->config->get('config_customer_activity'))) {
+                    // Add to activity log
+                    $this->load->model('account/activity');
+
+                    $activity_data = array(
+                        'customer_id' => $customerId,
+                        'name'        => $info['firstname'] . ' ' . $info['lastname']
+                    );
+
+                    $this->model_account_activity->addActivity('register', $activity_data);
+                }
+
                 $this->session->data['simple']['customer']['customer_id'] = $customerId;
                 $this->session->data['simple']['payment_address']['address_id'] = $addressId;
 
@@ -476,7 +488,7 @@ class ControllerCheckoutSimpleCheckout extends SimpleController {
 
         foreach ($results as $result) {
             if ($this->config->get($result['code'] . '_status')) {
-                $this->load->model('total/' . $result['code']);
+                $this->simplecheckout->loadModel('total/' . $result['code']);
 
                 if ($this->simplecheckout->getOpencartVersion() < 220) {
                     $this->{'model_total_' . $result['code']}->getTotal($totals, $total, $taxes);

@@ -43,8 +43,6 @@ if (!Array.isArray) {
 
 (function($) {
     $(function() {
-
-
         // stupid hack for jquery 1.7.1
         setTimeout(function(){
             $("option[selected]").attr("selected", "selected");
@@ -426,10 +424,89 @@ if (!Array.isArray) {
         };
     });
 
+    simpleModule.directive("modal", function() {
+        return {
+            restrict: "E",
+            scope: {
+                title: "@",
+                closeText: "@",
+                close: "&onClose",
+                src: "="
+            },
+            controller: function($rootScope, $scope, $element, $sce) {
+                $scope.trustSrc = function(src) {
+                    return $sce.trustAsResourceUrl(src);
+                }
+            },
+            transclude: true,
+            templateUrl: "modal",
+            replace: true
+        };
+    });
+
+    simpleModule.directive("alerts", function($compile, $rootScope) {
+        return {
+            restrict: "E",
+            transclude: true,
+            controller: function($scope, $element) {
+                $scope.alerts = $rootScope.alerts;
+            },
+            templateUrl: "alerts",
+            replace: true
+        };
+    });
+
     // controller
 
-    simpleModule.controller("simpleMainController", ["$rootScope", "$scope",
-        function($rootScope, $scope) {
+    simpleModule.controller("simpleMainController", ["$rootScope", "$scope", "$sce", 
+        function($rootScope, $scope, $sce) {
+            $scope.isFaqOpened = false;
+
+            $scope.faqSrc = "";
+
+            $scope.openFaq = function(src) {
+                $scope.isFaqOpened = true;
+                $scope.faqSrc = src;
+            };
+
+            $scope.closeFaq = function() {
+                $scope.isFaqOpened = false;
+                $scope.faqSrc = "";
+            };
+
+            $scope.isFaqOpened = false;
+
+            $scope.newsSrc = "";
+
+            $scope.openNews = function(src) {
+                $scope.isNewsOpened = true;
+                $scope.newsSrc = src;
+            };
+
+            $scope.closeNews = function() {
+                $scope.isNewsOpened = false;
+                $scope.newsSrc = "";
+            };
+
+            $rootScope.addAlert = function(text, type) {
+                var alert = {
+                    text: $sce.trustAsHtml(text),
+                    type: type
+                }
+
+                $rootScope.alerts.push(alert);
+                if(!$rootScope.$$phase) {
+                    $rootScope.$digest();
+                }
+
+                setTimeout(function() {
+                    $rootScope.alerts.splice($rootScope.alerts.indexOf(alert), 1)
+                    if(!$rootScope.$$phase) {
+                        $rootScope.$digest();
+                    }
+                }, 7500);
+            }
+
             $scope.save = function() {
                 for (var id in $rootScope.blocks) {
                     if (!$rootScope.blocks.hasOwnProperty(id)) continue;
@@ -439,7 +516,7 @@ if (!Array.isArray) {
                             if (!$rootScope.blocks[id].used.hasOwnProperty(j)) continue;
 
                             if (!$rootScope.blocks[id].used[j]) {
-                                alert($rootScope.errors["blocksRequired"]);
+                                $rootScope.addAlert($rootScope.errors["blocksRequired"], 'warning');
                                 return;
                             }
                         }
@@ -477,10 +554,8 @@ if (!Array.isArray) {
                     },
                     success: function(data) {
                         if (data["success"]) {
-                            $(".success").show();
-                            setTimeout(function() {
-                                $(".success").hide();
-                            }, 1500);
+                            $rootScope.addAlert($rootScope.texts.saved, 'success');
+
                             $("#saving").hide();
 
                             if (data["customFields"]) {
@@ -613,12 +688,12 @@ if (!Array.isArray) {
                 var check = new RegExp("^[a-zA-Z][a-zA-Z0-9_]*$");
 
                 if (!id || !check.test(id) || id === "metadata" || id === "custom_field") {
-                    alert($rootScope.errors.incorrectId);
+                    $rootScope.addAlert($rootScope.errors.incorrectId, 'warning');
                     return;
                 }
 
                 if (indexOfRow(id) > -1) {
-                    alert($rootScope.errors.usedId);
+                    $rootScope.addAlert($rootScope.errors.usedId, 'warning');
                     return;
                 }
 
@@ -940,7 +1015,7 @@ if (!Array.isArray) {
             var check = new RegExp("^[a-zA-Z0-9_*]*$");
 
             if (!$scope.setData.code || !check.test($scope.setData.code)) {
-                alert($rootScope.errors.incorrectId);
+                $rootScope.addAlert($rootScope.errors.incorrectId, 'warning');
                 return;
             }
 
@@ -968,7 +1043,23 @@ if (!Array.isArray) {
         };
     });
 
-    simpleModule.controller("simpleSetController", function($rootScope, $scope) {
+    simpleModule.controller("simpleCustomerController", function($rootScope, $scope) {
+        $scope.setData = {
+            default: {}
+        }
+
+        $scope.setData = function() {
+            for (var index in $rootScope.settings.fields) {
+                if (!$rootScope.settings.fields.hasOwnProperty(index)) continue;
+
+                if ($rootScope.settings.fields[index].id == 'register') {
+                    $scope.setData.default = $rootScope.settings.fields[index].default;
+                }
+            }
+        };
+    });
+
+    simpleModule.controller("simpleSetController", ['$rootScope', '$scope', '$sce', function($rootScope, $scope, $sce) {
         $scope.setData = {
             byDefault: 1,
             shippingMethod: "",
@@ -1218,11 +1309,17 @@ if (!Array.isArray) {
             }
         };
 
+        
+
         $scope.removeRow = function(type, id) {
             var index = $scope.findRow(type, id);
             if (index > -1) {
                 $scope.createScenario();
                 $scope.setData.rows[$scope.setData.scenario].splice(index, 1);
+            }
+
+            if (type == 'field' && id == 'register') {
+                $rootScope.addAlert($rootScope.texts.alertDefaultValue, 'warning');
             }
         };
 
@@ -1344,6 +1441,16 @@ if (!Array.isArray) {
             return "";
         };
 
+        $scope.isMainField = function(id) {
+            var index = indexOfField(id);
+
+            if (index > -1) {
+                return !$rootScope.settings.fields[index].custom;
+            }
+
+            return false;
+        };
+
         $scope.getHeaderName = function(id) {
             var index = indexOfHeader(id);
             if (index > -1) {
@@ -1385,7 +1492,7 @@ if (!Array.isArray) {
                 $scope.setData.rows[scenario].sort(compareSort);
             }
         };
-    });
+    }]);
 
     simpleModule.directive('uiSortable', function($templateCache) {
         return {

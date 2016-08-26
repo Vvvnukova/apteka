@@ -408,4 +408,5 @@ class ModelModuleSimpleCustom extends Model {
         return $ret;
     }
 }
-?>
+class ModelExtensionModuleSimpleCustom extends ModelModuleSimpleCustom {
+}
