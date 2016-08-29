@@ -127,13 +127,13 @@
           <?php if ($options) { ?>
              <?php foreach ($options as $option) { ?>
               <?php if($option['option_id'] == '15'){ ?>
-                <div class="alert alert-info" style="margin-bottom: 10px;"><?php echo $option['name']; ?></div>
+                <div class="label label-primary" style="margin-bottom: 10px;"><?php echo $option['name']; ?></div>
               <?php } ?> 
                <?php if($option['option_id'] == '16'){ ?>
-                <div class="alert alert-warning" style="margin-bottom: 10px;"><?php echo $option['name']; ?></div>
+                <div class="label label-warning" style="margin-bottom: 10px;"><?php echo $option['name']; ?></div>
               <?php } ?> 
               <?php if($option['option_id'] == '13'){ ?>
-                <div class="alert alert-danger" style="margin-bottom: 10px;"><?php echo $option['name']; ?></div>
+                <div class="label label-danger" style="margin-bottom: 10px;"><?php echo $option['name']; ?></div>
               <?php } ?> 
             <?php } ?>
             <?php } ?>
