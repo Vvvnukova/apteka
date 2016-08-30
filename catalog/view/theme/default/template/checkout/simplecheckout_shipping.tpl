@@ -52,7 +52,7 @@
                                     <?php if (!empty($quote['img'])) { ?>
                                         <img src="<?php echo $quote['img']; ?>" width="60" height="32" border="0" style="display:block;margin:3px;">
                                     <?php } ?>
-                                    <?php echo !empty($quote['title']) ? $quote['title'] : ''; ?><?php echo !empty($quote['text']) ? ' - ' . $quote['text'] : ''; ?>
+                                    <?php echo (isset($quote['title_sub']) ? $quote['title_sub'] : (!empty($quote['title']) ? $quote['title'] : '')); ?><?php echo !empty($quote['text']) ? ' - ' . $quote['text'] : ''; ?>
                                 </label>
                             </div>
                             <?php if (!empty($quote['description'])) { ?>
