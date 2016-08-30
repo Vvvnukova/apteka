@@ -1,3 +1,4 @@
+
 <?php echo $header; ?>
 <div class="container">
   <ul class="breadcrumb">
@@ -561,7 +562,7 @@ $('#address .form-group[data-sort]').detach().each(function() {
 
 $('input[name=\'customer_group_id\']').on('change', function() {
 	$.ajax({
-		url: 'index.php?route=account/register/customfield&customer_group_id=' + this.value,
+		url: 'index.php?route=account/simpleregister/customfield&customer_group_id=' + this.value,
 		dataType: 'json',
 		success: function(json) {
 			$('.custom-field').hide();
