@@ -25,3 +25,84 @@
 2016-08-30 12:41:23 - СДЭК: город доставки не определен!
 2016-08-30 12:41:26 - СДЭК: вес заказа 0.5
 2016-08-30 12:41:26 - СДЭК: город доставки не определен!
+2016-08-30 14:57:05 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:57:05 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:57:05 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:48 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:48 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:48 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:56 - СДЭК: вес заказа 0.5
+2016-08-30 14:58:56 - СДЭК: город доставки не определен!
+2016-08-30 14:58:57 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:57 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:57 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 14:58:59 - СДЭК: вес заказа 0.5
+2016-08-30 14:58:59 - СДЭК: город доставки не определен!
+2016-08-30 14:59:17 - СДЭК: вес заказа 0.5
+2016-08-30 14:59:17 - СДЭК: город доставки не определен!
+2016-08-30 14:59:23 - СДЭК: вес заказа 0.5
+2016-08-30 14:59:23 - СДЭК: город доставки не определен!
+2016-08-30 14:59:33 - СДЭК: вес заказа 0.5
+2016-08-30 14:59:34 - СДЭК: Город получателя «Астрахань, Астраханская обл., Россия» (432)
+2016-08-30 14:59:34 - СДЭК: объем 0.002
+2016-08-30 15:01:39 - СДЭК: вес заказа 0.5
+2016-08-30 15:01:40 - СДЭК: не определен подходящий город!
+2016-08-30 15:01:46 - СДЭК: вес заказа 0.5
+2016-08-30 15:01:46 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:01:46 - СДЭК: объем 0.002
+2016-08-30 15:01:46 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:25:28 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:25:28 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:25:28 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:25:33 - СДЭК: вес заказа 0.5
+2016-08-30 15:25:33 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:25:33 - СДЭК: объем 0.002
+2016-08-30 15:25:34 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:25:35 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:25:35 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:25:35 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:25:37 - СДЭК: вес заказа 0.5
+2016-08-30 15:25:38 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:25:38 - СДЭК: объем 0.002
+2016-08-30 15:25:39 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:25:43 - СДЭК: вес заказа 0.5
+2016-08-30 15:25:43 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:25:43 - СДЭК: объем 0.002
+2016-08-30 15:25:44 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:26:02 - СДЭК: вес заказа 0.5
+2016-08-30 15:26:03 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:26:03 - СДЭК: объем 0.002
+2016-08-30 15:26:03 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:26:04 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:26:04 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:26:04 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:26:07 - СДЭК: вес заказа 0.5
+2016-08-30 15:26:08 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:26:08 - СДЭК: объем 0.002
+2016-08-30 15:26:08 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:26:11 - СДЭК: вес заказа 0.5
+2016-08-30 15:26:11 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:26:11 - СДЭК: объем 0.002
+2016-08-30 15:26:12 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:26:47 - СДЭК: вес заказа 0.5
+2016-08-30 15:26:47 - СДЭК: Город получателя «Москва, Москва, Россия» (44)
+2016-08-30 15:26:47 - СДЭК: объем 0.002
+2016-08-30 15:26:47 - СДЭК: Не сформирован список тарифов для текущей географической зоны!
+2016-08-30 15:26:56 - СДЭК: вес заказа 0.5
+2016-08-30 15:26:57 - СДЭК: не определен подходящий город!
+2016-08-30 15:27:07 - СДЭК: вес заказа 0.5
+2016-08-30 15:27:07 - СДЭК: Город получателя «Белгород, Белгородская обл., Россия» (337)
+2016-08-30 15:27:07 - СДЭК: объем 0.002
+2016-08-30 15:27:07 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:27:30 - СДЭК: вес заказа 0.5
+2016-08-30 15:27:30 - СДЭК: не определен подходящий город!
+2016-08-30 15:27:40 - СДЭК: вес заказа 0.5
+2016-08-30 15:27:42 - СДЭК: Город получателя «Долгопрудный, Московская обл., Россия» (472)
+2016-08-30 15:27:42 - СДЭК: объем 0.002
+2016-08-30 15:27:42 - СДЭК: Невозможно осуществить доставку по этому направлению при заданных условиях
+2016-08-30 15:46:32 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:46:32 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:46:32 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:51:48 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:51:48 - PHP Warning:  include(catalog/view/coloring/coloringpassword.php): failed to open stream: No such file or directory in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49
+2016-08-30 15:51:48 - PHP Warning:  include(): Failed opening 'catalog/view/coloring/coloringpassword.php' for inclusion (include_path='.:/Applications/MAMP/bin/php/php5.6.10/lib/php') in /Applications/MAMP/htdocs/apteka/catalog/view/theme/default/template/common/header.tpl on line 49

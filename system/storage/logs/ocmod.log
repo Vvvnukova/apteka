@@ -32399,3 +32399,166 @@ LINE: 377
 CODE: $product_option_value_data[] = array(
 LINE: 410
 ----------------------------------------------------------------
+2016-08-30 15:26:41 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 39
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 20
+LINE: 59
+LINE: 80
+LINE: 99
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 23
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 25
+LINE: 31
+----------------------------------------------------------------
+MOD: AJAX live search
+FILE: catalog/controller/common/search.php
+CODE: $this->load->language('common/search');
+LINE: 13
+FILE: catalog/language/english/product/search.php
+CODE: <?php
+LINE: 3
+FILE: catalog/language/russian/product/search.php
+CODE: <?php
+LINE: 3
+FILE: catalog/view/theme/default/template/common/search.tpl
+CODE: id="search"
+LINE: 105
+----------------------------------------------------------------
+MOD: Options price ocStore2
+FILE: system/library/cart.php
+CODE: $option_price = 0;
+LINE: 42
+CODE: if ($option_value_query->row['price_prefix'] == '+') {
+LINE: 56
+LINE: 97
+CODE: if (!$product_query->row['quantity']
+LINE: 267
+CODE: $price + $option_price
+LINE: 304
+LINE: 305
+FILE: admin/view/template/catalog/product_form.tpl
+CODE: <?php if ($product_option_value['price_prefix'] == '+') { ?>
+LINE: 662
+CODE: <select name="product_option[' + option_row + '][product_option_value][' + option_value_row + '][price_prefix]"
+LINE: 1286
+FILE: catalog/controller/product/product.php
+CODE: $price = $this->currency->format($this->tax->calculate($option_value['price'], $product_info['tax_class_id'], $this->config->get('config_tax') ? 'P' : false));
+LINE: 354
+----------------------------------------------------------------
+MOD: Password in email
+FILE: catalog/model/account/customer.php
+CODE: $message .= $this->url->link('account/login', '', 'SSL') . "\n\n";
+LINE: 40
+FILE: catalog/language/russian/mail/customer.php
+CODE: <?php
+LINE: 3
+FILE: catalog/language/english/mail/customer.php
+CODE: <?php
+LINE: 3
+----------------------------------------------------------------
+MOD: Simple Custom Data Admin
+FILE: admin/controller/sale/order.php
+CODE: $store_info = $this->model_setting_setting->getSetting('config', $order_info['store_id']);
+LINE: 1584
+LINE: 1830
+CODE: $shipping_address = str_replace(
+LINE: 1687
+LINE: 1916
+CODE: $payment_address = str_replace
+LINE: 1653
+CODE: $customer_group_info = $this->model_customer_customer_group->getCustomerGroup
+LINE: 878
+CODE: $data['shipping_address'] = str_replace(
+LINE: 977
+CODE: $data['payment_address'] = str_replace(
+LINE: 942
+CODE: $data['ip'] = $order_info['ip'];
+LINE: 1301
+FILE: admin/view/template/customer/customer_form.tpl
+CODE: id="tab-customer"
+LINE: 64
+CODE: <input type="hidden" name="address[<?php echo $address_row; ?>][address_id]" value="<?php echo $address['address_id']; ?>" />
+LINE: 364
+FILE: admin/view/template/sale/order_info.tpl
+CODE: id="tab-order"
+NOT FOUND!
+CODE: id="tab-payment"
+NOT FOUND!
+CODE: id="tab-shipping"
+NOT FOUND!
+FILE: admin/view/template/sale/order_form.tpl
+CODE: id="tab-customer"
+LINE: 36
+CODE: id="tab-payment"
+LINE: 417
+CODE: id="tab-shipping"
+LINE: 636
+----------------------------------------------------------------
+MOD: Simple Custom Data Catalog
+FILE: catalog/model/checkout/order.php
+CODE: if (!$order_info['order_status_id'] && $order_status_id) {
+LINE: 388
+CODE: $data['title'] = sprintf($language->get('text_new_
+LINE: 426
+CODE: data['payment_address']
+LINE: 526
+CODE: data['shipping_address']
+LINE: 577
+FILE: catalog/controller/account/address.php
+CODE: $find = array(
+LINE: 225
+CODE: data['addresses'][] = array(
+LINE: 264
+FILE: catalog/controller/account/order.php
+CODE: data['payment_address']
+LINE: 262
+CODE: data['shipping_address']
+LINE: 319
+----------------------------------------------------------------
+MOD: Simple Disabling of validation in edit order form
+FILE: admin/controller/customer/customer.php
+CODE: if ($this->error && !isset($this->error['warning'])) {
+LINE: 1110
+FILE: catalog/controller/api/customer.php
+CODE: if (!$json) {
+LINE: 78
+FILE: catalog/controller/api/payment.php
+CODE: if (!$json) {
+LINE: 78
+LINE: 162
+LINE: 268
+FILE: catalog/controller/api/shipping.php
+CODE: if (!$json) {
+LINE: 79
+LINE: 163
+LINE: 248
+----------------------------------------------------------------
+MOD: Обновление цены при выборе опций OC2 (без AJAX)
+FILE: catalog/view/theme/default/template/product/product.tpl
+CODE: value="<?php echo $option_value['product_option_value_id']; ?>"
+LINE: 197
+LINE: 213
+LINE: 231
+LINE: 249
+CODE: (<?php echo $option_value['price_prefix']; ?><?php echo $option_value['price']; ?>)
+LINE: 199
+LINE: 216
+LINE: 234
+LINE: 252
+CODE: <?php echo $footer; ?>
+LINE: 893
+FILE: catalog/model/catalog/product.php
+CODE: 'weight'                  => $product_option_value['weight'],
+LINE: 347
+CODE: $data['options'] = array();
+LINE: 377
+CODE: $product_option_value_data[] = array(
+LINE: 410
+----------------------------------------------------------------

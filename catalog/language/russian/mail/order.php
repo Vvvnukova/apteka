@@ -1,7 +1,7 @@
 <?php
 // Text
 $_['text_new_subject']          = '%s - Заказ %s';
-$_['text_new_greeting']         = 'Благодарим вас за интерес к товарам %s. Ваш заказ будет обработан после подтверждения оплаты.';
+$_['text_new_greeting']         = 'Благодарим Вас за сделанный заказ. Наш оператор свяжется с Вами в ближайшее время.';
 $_['text_new_received']         = 'Вы получили заказ.';
 $_['text_new_link']             = 'Для просмотра заказа нажмите на ссылку ниже:';
 $_['text_new_order_detail']     = 'Информация о заказе';
@@ -15,10 +15,10 @@ $_['text_new_email']  			= 'E-mail:';
 $_['text_new_telephone']  		= 'Телефон:';
 $_['text_new_ip']  				= 'IP адрес:';
 $_['text_new_payment_address']  = 'Адрес Платежа';
-$_['text_new_shipping_address'] = 'Адрес Доставки';
+$_['text_new_shipping_address'] = 'Адрес доставки';
 $_['text_new_products']         = 'Товары';
 $_['text_new_product']          = 'Товар';
-$_['text_new_model']            = 'Модель';
+$_['text_new_model']            = 'Код товара';
 $_['text_new_quantity']         = 'Кол-во';
 $_['text_new_price']            = 'Цена';
 $_['text_new_order_total']      = 'Итог заказа';
@@ -32,4 +32,4 @@ $_['text_update_date_added']    = 'Дата добавления:';
 $_['text_update_order_status']  = 'Ваш заказ был обновлен до следующего статуса:';
 $_['text_update_comment']       = 'Комментарии к вашему заказу:';
 $_['text_update_link']          = 'Для просмотра заказа нажмите на ссылку ниже:';
-$_['text_update_footer']        = 'Пожалуйста, ответьте на это письмо, если у вас есть какие-либо вопросы.';
+$_['text_update_footer']        = 'Пожалуйста, ответьте на это письмо, если у Вас есть какие-либо вопросы.';
