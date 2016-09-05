@@ -76,8 +76,8 @@
             <!--<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li> -->
             <li><a href="<?php echo $logout; ?>"><?php echo $text_logout; ?></a></li>
             <?php } else { ?>
-            <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
             <li><a href="<?php echo $login; ?>"><?php echo $text_login; ?></a></li>
+              <li><a href="<?php echo $register; ?>"><?php echo $text_register; ?></a></li>
             <?php } ?>
           </ul>
         </li>
@@ -159,7 +159,7 @@
               </ul>
               <?php } ?>
             </div>
-            <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <?php echo $category['name']; ?></a> </div>
+            <a href="<?php echo $category['href']; ?>" class="see-all"><?php echo $text_all; ?> <!--<?php echo $category['name']; ?>--></a> </div>
         </li>
         <?php } else { ?>
         <li><a href="<?php echo $category['href']; ?>"><?php echo $category['name']; ?></a></li>
