@@ -1,0 +1,14 @@
+
+.DS_Store
+
+.idea/apteka.iml
+
+.idea/workspace.xml
+
+.idea/vcs.xml
+
+.idea/modules.xml
+
+system/storage/cache/
+
+system/storage/logs/error.log
